@@ -20,7 +20,6 @@ const Profile = () => {
     { autoFetch: false }
   );
   const { logout, isAuthenticated, user } = useMoralis();
-  const { save } = useNewMoralisObject("analytics");
 
   const [error, setError] = useState("");
 
