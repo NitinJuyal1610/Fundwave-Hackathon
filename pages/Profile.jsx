@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import Navbar from "./components/Navbar";
 import { useMoralisQuery } from "react-moralis";
+
+import styles from "../styles/Register.module.css";
 import Demo from "./Demo";
 const Moralis = require("moralis-v1");
 
@@ -22,6 +24,7 @@ const Profile = () => {
   const { logout, isAuthenticated, user } = useMoralis();
 
   const [error, setError] = useState("");
+  const [vis, setVis] = useState(false);
 
   const [dataFetch, setDataFetch] = useState([]);
 
@@ -74,27 +77,42 @@ const Profile = () => {
       parsedData.map((temp) => {
         FileUpload(temp);
       });
+
+      setVis(true);
     };
     reader.readAsText(file);
   };
   return (
     <div>
       <Navbar />
-      <label htmlFor="csvInput" style={{ display: "block" }}>
-        Enter CSV File
-      </label>
-      <input
-        onChange={handleFileChange}
-        id="csvInput"
-        name="file"
-        type="File"
-      />
+      <div
+        style={{
+          position: "absolute",
+          top: "50vh",
+          left: "10vh",
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+        }}
+      >
+        <label htmlFor="csvInput" style={{ display: "block" }}>
+          Enter CSV File
+        </label>
+        <input
+          onChange={handleFileChange}
+          id="csvInput"
+          name="file"
+          type="File"
+        />
 
-      <div>
-        <button onClick={handleParse}>Display</button>
-        <button onClick={getJson}>getJson</button>
+        <div>
+          <button onClick={handleParse}>Display</button>
+        </div>
       </div>
-      <Demo data={dataFetch} />
+
+      <div hidden={!vis}>
+        <Demo data={dataFetch} />
+      </div>
     </div>
   );
 };
