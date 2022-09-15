@@ -6,25 +6,19 @@ import { useMoralisQuery } from "react-moralis";
 const Moralis = require("moralis-v1");
 
 import Papa from "papaparse";
-import { useNewMoralisObject } from "react-moralis";
 
 // Allowed extensions for input file
 const allowedExtensions = ["csv"];
 
 const Profile = () => {
-  const { data, isFetching } = useMoralisQuery(
+  const [file, setFile] = useState("");
+
+  const { fetch } = useMoralisQuery(
     "Analytics",
-    (query) => query.select("PAGE", "PERIOD_DATE", "PERIOD_TYPE", "VISITS "),
+    (query) => query.select("id"),
     [],
     { autoFetch: false }
   );
-  const { logout, isAuthenticated, user } = useMoralis();
-  const { save } = useNewMoralisObject("analytics");
-
-  const [error, setError] = useState("");
-
-  const [file, setFile] = useState("");
-
   const handleFileChange = (e) => {
     setError("");
 
@@ -42,7 +36,11 @@ const Profile = () => {
   };
 
   const getJson = () => {
-    console.log(data);
+    fetch({
+      onSuccess: (monster) => {
+        console.log(monster.get(""));
+      },
+    });
   };
 
   const FileUpload = (temp) => {
