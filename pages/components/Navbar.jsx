@@ -18,14 +18,9 @@ export const Navbar = () => {
         </div>
         <div className={styles.nav_item}>
           <li className={styles.nav_links}>
-            <Link href="/Policy" className={styles.Policy_Route}>
-              <a className={styles.nav_link} href="">
-                Policies
-              </a>
-            </Link>
-            <a className={styles.nav_link} href="">
-              Our Team
-            </a>
+            
+          
+
             <>
               {user ? (
                 <Link href="/">
