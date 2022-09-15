@@ -13,15 +13,13 @@ export const Navbar = () => {
                         <div id={styles.brandlogo} style={{ width: 50, height: 50 }} />
                     </div>
                     <div className={styles.logo_name}>
-                        <h3 className={styles.logo_text}>Insurechain</h3>
+                        <h3 className={styles.logo_text}>Dashboard</h3>
                     </div>
                 </div>
                 <div className={styles.nav_item}>
                     <li className={styles.nav_links}>
-                        <Link href="/Policy" className={styles.Policy_Route}>
-                            <a className={styles.nav_link} href=''>Policies</a>
-                        </Link>
-                        <a className={styles.nav_link} href=''>Our Team</a>
+                        
+            
                         <>
                             {
                                 user ? (
