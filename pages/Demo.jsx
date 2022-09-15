@@ -3,10 +3,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { VictoryTheme,VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 const data = [
-    {quarter: 1, earnings: 13000},
+    {quarter: 1, earnings: 7500},
     {quarter: 2, earnings: 16500},
-    {quarter: 3, earnings: 14250},
-    {quarter: 4, earnings: 19000}
+    {quarter: 3, earnings: 3750},
+    {quarter: 4, earnings: 17500}
   ];
 const Demo = () => {
   const router = useRouter();
