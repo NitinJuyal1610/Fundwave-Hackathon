@@ -5,27 +5,6 @@ import { useMoralis } from "react-moralis";
 export const Navbar = () => {
   const { user, isAuthenticated, isAuthenticating, logout } = useMoralis();
 
-<<<<<<< HEAD
-    return (
-        <div className={styles.nav_component}>
-            <div className={styles.nav_items}>
-                <div className={styles.logo_component}>
-                    <div className={styles.logo}>
-                        <div id={styles.brandlogo} style={{ width: 50, height: 50 }} />
-                    </div>
-                    <div className={styles.logo_name}>
-                        <h3 className={styles.logo_text}>Dashboard</h3>
-                    </div>
-                </div>
-                <div className={styles.nav_item}>
-                    <li className={styles.nav_links}>
-                        
-            
-                        <>
-                            {
-                                user ? (
-                                    <Link href="/">
-=======
   return (
     <div className={styles.nav_component}>
       <div className={styles.nav_items}>
@@ -39,14 +18,9 @@ export const Navbar = () => {
         </div>
         <div className={styles.nav_item}>
           <li className={styles.nav_links}>
-            <Link href="/Policy" className={styles.Policy_Route}>
-              <a className={styles.nav_link} href="">
-                Policies
-              </a>
-            </Link>
-            <a className={styles.nav_link} href="">
-              Our Team
-            </a>
+            
+          
+
             <>
               {user ? (
                 <Link href="/">
@@ -73,6 +47,5 @@ export const Navbar = () => {
     </div>
   );
 };
->>>>>>> cb22bfe1cbc1386f523be6e20877ec82b3aba849
 
 export default Navbar;

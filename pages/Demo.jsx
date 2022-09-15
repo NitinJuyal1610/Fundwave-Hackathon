@@ -21,11 +21,11 @@ const Demo = () => {
       >
         <VictoryAxis
           tickValues={[1, 2, 3, 4]}
-          tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
+          tickFormat={["careers", "home", "docs", "contact"]}
         />
         <VictoryAxis
           dependentAxis
-          tickFormat={(x) => (`$${x / 1000}k`)}
+          tickFormat={(x) => (`${x / 1000}k`)}
         />
         <VictoryBar
           data={data}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import Navbar from "./components/Navbar";
 import { useMoralisQuery } from "react-moralis";
-
+import Demo from './Demo'
 const Moralis = require("moralis-v1");
 
 import Papa from "papaparse";
@@ -24,6 +24,7 @@ const Profile = () => {
   const [error, setError] = useState("");
 
   const [file, setFile] = useState("");
+  const [dataFetch, setDataFetch] = useState([]);
 
   const handleFileChange = (e) => {
     setError("");
@@ -65,7 +66,8 @@ const Profile = () => {
     reader.onload = async ({ target }) => {
       const csv = Papa.parse(target.result, { header: true });
       const parsedData = csv?.data;
-
+      setDataFetch(parsedData)
+      console.log(parsedData);
       parsedData.map((temp) => {
         FileUpload(temp);
       });
@@ -89,6 +91,7 @@ const Profile = () => {
         <button onClick={handleParse}>Display</button>
         <button onClick={getJson}>getJson</button>
       </div>
+      <Demo data={dataFetch}/>
     </div>
   );
 };
