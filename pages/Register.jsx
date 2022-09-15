@@ -7,42 +7,20 @@ const Register = () => {
 
   // const [userLogged,setUserLogged] =useState(false)
   const [formData, setFormData] = useState({
-    fullName: "",
     username: "",
     email: "",
-    phoneNumber: "",
-    gender: "",
     password: "",
     ConPassword: "",
   });
-  const {
-    fullName,
-    username,
-    email,
-    phoneNumber,
-    gender,
-    password,
-    ConPassword,
-  } = formData;
+  const { username, email, password, ConPassword } = formData;
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === ConPassword) {
-      console.log(
-        username,
-        password,
-        email,
-        { phoneNumber: phoneNumber },
-        { gender: gender },
-        { fullName: fullName }
-      );
-      signup(username, password, email, {
-        phoneNumber: phoneNumber,
-        gender: gender,
-        fullName: fullName,
-      });
+      console.log(username, password, email);
+      signup(username, password, email);
     }
   };
 
@@ -59,18 +37,6 @@ const Register = () => {
                 action="#"
               >
                 <div className={styles.user_details}>
-                  <div className={styles.input_box}>
-                    <span className={styles.details}>Full Name</span>
-                    <input
-                      className={styles.input}
-                      type="text"
-                      placeholder="Enter your name"
-                      name="fullName"
-                      value={fullName}
-                      onChange={(e) => onChange(e)}
-                      required
-                    />
-                  </div>
                   <div className={styles.input_box}>
                     <span className={styles.details}>Username</span>
                     <input
@@ -95,29 +61,7 @@ const Register = () => {
                       required
                     />
                   </div>
-                  <div className={styles.input_box}>
-                    <span className={styles.details}>Phone Number</span>
-                    <input
-                      className={styles.input}
-                      type="text"
-                      name="phoneNumber"
-                      value={phoneNumber}
-                      placeholder="Enter your number"
-                      onChange={(e) => onChange(e)}
-                      required
-                    />
-                  </div>
-                  <div className={styles.input_box}>
-                    <span className={styles.details}>Gender</span>
-                    <input
-                      className={styles.input}
-                      type="text"
-                      name="gender"
-                      value={gender}
-                      onChange={(e) => onChange(e)}
-                      required
-                    />
-                  </div>
+
                   <div className={styles.input_box}>
                     <span className={styles.details}>Password</span>
                     <input
